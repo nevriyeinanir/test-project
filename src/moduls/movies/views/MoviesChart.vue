@@ -1,11 +1,13 @@
 <template>
-  <Movies v-for="(items, index) in movies" :key="items.programType" :index="index">
-      <MoviesImage :index="index" :moviesid="items.title"/>
-      <MoviesFooter
-        :programType="items.programType"
-        :index="index"
-      />
+  <Movies
+    v-for="(items, index) in movies"
+    :key="items.programType"
+    :index="index"
+  >
+    <MoviesImage :index="index" :moviesimg="items.images['Poster Art'].url" />
+    <MoviesFooter :index="index" :moviesContent="items.title"  />
   </Movies>
+  <div></div>
 </template>
 <script>
 import Movies from "../components/Movies.vue";
@@ -22,17 +24,15 @@ export default {
   data() {
     return {
       movies: [],
-      moviesList:[]
-      
     };
   },
   created() {
     this.getMovies();
   },
-  methods: {
+ methods: {
     getMovies() {
       axios.get("/db_movies.json").then((response) => {
-        this.movies= response.data.entries.programType;
+        this.movies= response.data.entries;
         console.log(this.movies)
       });
     },

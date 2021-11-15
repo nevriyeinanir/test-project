@@ -9,4 +9,4 @@ const app = createApp(App).use(router);
 
 app.config.globalProperties.axios=axios;
 
-createApp(App).mount('#app');
+app.mount('#app');
