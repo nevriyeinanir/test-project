@@ -1,8 +1,7 @@
 <template>
  <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+            <p>  {{moviesContent}}</p>
           </div>
-          {{moviesContent}}
 </template>
 
 <script>
