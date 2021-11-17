@@ -1,17 +1,15 @@
 <template>
-  <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <figure>
-        <a href="#" target="_blank">
-          <img
-            :src="this.SelectSrc(this.moviestype)"
-            alt="Cinque Terre"
-            width="250"
-            height="300"
-            class="rounded"
-          />
-        </a>
-      </figure>
+  <div class="col-sm-6 col-lg-4">
+    <div class="card card-sm">
+      <router-link :to="this.Selectpath(this.moviestype)">
+        <img
+          :src="this.SelectSrc(this.moviestype)"
+          alt="Cinque Terre"
+          width="250"
+          height="300"
+          class="rounded"
+        />
+      </router-link>
     </div>
   </div>
   <slot></slot>
@@ -23,7 +21,8 @@ export default {
   props: ["moviestype"],
   data() {
     return {
-      src:"",
+      src: "",
+      path: "",
     };
   },
   methods: {
@@ -33,9 +32,17 @@ export default {
           "https://streamcoimg-a.akamaihd.net/000/108/70/10870-PosterArt-c37e8232f327b27bc62043ea627ca528.jpg";
       } else {
         this.src =
-          "https://streamcoimg-a.akamaihd.net/000/115/3873/1153873-PosterArt-93b3333a696042bf7da06b874af771d8.jpg";
+          "https://streamcoimg-a.akamaihd.net/000/958/725/958725-PosterArt-96c5bbb6e15269f5b5cd9bc7801de1d9.jpg";
       }
       return this.src;
+    },
+    Selectpath(m) {
+      if (m == "series") {
+        this.path = "/series";
+      } else {
+        this.path = "/cine";
+      }
+      return this.path;
     },
   },
 };

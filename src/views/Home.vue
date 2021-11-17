@@ -4,7 +4,7 @@
    </div>
 </template>
 <script>
-import MoviesChart from "@/moduls/movies/views/MoviesChart.vue";
+import MoviesChart from "@/moduls/movies/maincomponents/MoviesChart.vue";
 
 export default {
   name: "Home",

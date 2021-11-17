@@ -1,13 +1,25 @@
 <template>
- <div class="caption" >
-  <figcaption v-if="moviesContent == 'series'" justification=centering><h4>Dizi</h4></figcaption>
-  <figcaption v-if="moviesContent == 'movie'" justification=centering><h4>Film</h4></figcaption>
-          </div>
+   <div class="card-body">
+    <div class="d-flex align-items-center">
+    <h4>{{ Figcap(moviesContent)}}</h4>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "MoviesFooter",
-  props:["moviesContent"],
+  props: ["moviesContent"],
+  caption: "",
+  methods: {
+    Figcap(f) {
+      if (f == "series") {
+        this.caption = "Dizi";
+      } else {
+        this.caption = "Film";
+      }
+      return this.caption;
+    },
+  },
 };
 </script>

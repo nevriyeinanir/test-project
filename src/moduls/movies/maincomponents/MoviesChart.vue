@@ -1,5 +1,4 @@
 <template>
-<div class="grid">
   <Movies
     v-for="(items, index) in programTypes"
     :key="programTypes[ index ]"
@@ -7,7 +6,6 @@
   ><MoviesImage :index="index"  :moviestype ="programTypes[ index ]" />
     <MoviesFooter :index="index" :moviesContent="programTypes[ index ]"/>
   </Movies>
-  </div>
 </template>
 <script>
 import Movies from "../components/Movies.vue";
@@ -38,9 +36,13 @@ export default {
         this.programTypes = this.movies
           .map((movie) => movie.programType)
           .filter((value, index, arr) => arr.indexOf(value) === index);
+              
            // console.log(this.programTypes)
        return this.programTypes
-      });
+      })
+      .catch((err)=>{
+     console.log(err);
+    });
     },
   },
 };
