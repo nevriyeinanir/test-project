@@ -1,18 +1,19 @@
 <template>
+<div class="grid">
   <Movies
-    v-for="(items, index) in movies"
-    :key="items.programType"
+    v-for="(items, index) in programTypes"
+    :key="programTypes[ index ]"
     :index="index"
-  >
-    <MoviesImage :index="index" :moviesimg="items.images['Poster Art'].url" />
-    <MoviesFooter :index="index" :moviesContent="items.title"  />
+  ><MoviesImage :index="index"  :moviestype ="programTypes[ index ]" />
+    <MoviesFooter :index="index" :moviesContent="programTypes[ index ]"/>
   </Movies>
-  <div></div>
+  </div>
 </template>
 <script>
 import Movies from "../components/Movies.vue";
 import MoviesFooter from "../components/MoviesFooter.vue";
 import MoviesImage from "../components/MoviesImage.vue";
+/* <MoviesImage :index="index" :moviesimg="items.images['Poster Art'].url" />*/
 import axios from "axios";
 export default {
   name: "MoviesChart",
@@ -24,16 +25,21 @@ export default {
   data() {
     return {
       movies: [],
+      programTypes: [],
     };
   },
   created() {
     this.getMovies();
   },
- methods: {
+  methods: {
     getMovies() {
       axios.get("/db_movies.json").then((response) => {
-        this.movies= response.data.entries;
-        console.log(this.movies)
+        this.movies = response.data.entries;
+        this.programTypes = this.movies
+          .map((movie) => movie.programType)
+          .filter((value, index, arr) => arr.indexOf(value) === index);
+           // console.log(this.programTypes)
+       return this.programTypes
       });
     },
   },

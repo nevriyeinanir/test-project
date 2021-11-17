@@ -1,15 +1,12 @@
 <template>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="thumbnail">
+ <div style= "display:inline-grid" class="portfolioimages"  white-space="nowrap" float="left">
     <slot></slot>
-  </div>
-  </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Movies",
+  props:["key"],
 };
 </script>

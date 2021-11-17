@@ -5,6 +5,7 @@
 </template>
 <script>
 import MoviesChart from "@/moduls/movies/views/MoviesChart.vue";
+
 export default {
   name: "Home",
   components: {

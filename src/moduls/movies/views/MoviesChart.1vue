@@ -1,0 +1,84 @@
+<template>
+  <Movies
+    v-for="(items, index) in movies"
+    :key="items.programType"
+    :index="index"
+  ><MoviesImage :index="index" :moviesimg="items.images['Poster Art'].url" />
+    <MoviesFooter :index="index" :moviesContent="items.title" />
+  </Movies>
+  <div></div>
+</template>
+<script>
+import Movies from "../components/Movies.vue";
+import MoviesFooter from "../components/MoviesFooter.vue";
+import MoviesImage from "../components/MoviesImage.vue";
+import axios from "axios";
+export default {
+  name: "MoviesChart",
+  components: {
+    Movies: Movies,
+    MoviesFooter: MoviesFooter,
+    MoviesImage: MoviesImage,
+  },
+  data() {
+    return {
+      movies: [],
+    };
+  },
+  created() {
+    this.getMovies();
+  },
+  methods: {
+    getMovies() {
+      axios.get("/db_movies.json").then((response) => {
+        this.movies = response.data.entries;
+
+        //console.log(this.movies);
+
+        const programTypes = this.movies
+          .map((movie) => movie.programType)
+          .filter((value, index, arr) => arr.indexOf(value) === index);
+           console.log(programTypes)
+        var series;
+        var justMovies;
+
+        for (let i = 0; i < programTypes.length; i++) {
+         // console.log(programTypes[i]);
+          if (programTypes[i] === "series") {
+            series = this.movies.filter(function (item) {
+              return item.programType == programTypes[i];
+            });
+          } else {
+            justMovies = this.movies.filter(function (item) {
+              return item.programType == programTypes[i];
+            });
+          }
+        }
+
+        for (let i = 0; i < series.length; i++) {
+          console.log(series[i]);
+        }
+
+        for (let i = 0; i < justMovies.length; i++) {
+          console.log(justMovies[i]);
+        }
+
+        const movie = justMovies[0];
+        const serial = series[0];
+        console.log(movie.title);
+        console.log(serial.title);
+
+        // var unique = this.movies.filter((v, i, a) => a.indexOf(v) === i);
+        //  console.log(unique)
+        //  return unique
+      });
+    },
+
+    MoviesDistinct() {
+      for (let i = 0; i < this.movies.length; i++) {
+        // return this.movies.find((movies) => movies[i].programType === typ);
+      }
+    },
+  },
+};
+</script>
