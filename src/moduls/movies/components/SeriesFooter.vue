@@ -1,8 +1,10 @@
 <template>
-  <div class="caption">
-    <figcaption justification="centering">
-      <h4>{{  }}</h4>
-    </figcaption>
+  <div class="card-body">
+    <div class="d-flex align-items-center">
+      <div>
+        <div class="text-muted text-center">{{}}</div>
+      </div>
+    </div>
   </div>
 </template>
 

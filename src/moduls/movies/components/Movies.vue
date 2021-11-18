@@ -1,12 +1,7 @@
-<template>   
-  <div
-    style="display: inline-grid"
-    class="portfolioimages"
-    white-space="nowrap"
-    float="left"
-  >
-  <div class="row row-cards">
-  <slot></slot>
+<template>
+  <div style="display: inline-grid" class="portfolioimages">
+    <div class="row row-cards">
+      <slot></slot>
     </div>
   </div>
 </template>
