@@ -8,7 +8,7 @@
     :key="items.programType"
     :index="index"
   ><SeriesImage :index="index" :moviesimg="items.images['Poster Art'].url"/>
-    <SeriesFooter :index="index"/>
+    <SeriesFooter :index="index" :moviesContent="items.title"/>
   </Movies>
 </template>
 <script>

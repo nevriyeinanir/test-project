@@ -12,7 +12,6 @@ import Movies from "../components/Movies.vue";
 import MoviesFooter from "../components/MoviesFooter.vue";
 import MoviesImage from "../components/MoviesImage.vue";
 /* <MoviesImage :index="index" :moviesimg="items.images['Poster Art'].url" />*/
-
 import axios from "axios";
 export default {
   name: "MoviesChart",

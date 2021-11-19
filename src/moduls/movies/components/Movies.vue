@@ -1,9 +1,7 @@
 <template>
-  <div style="display: inline-grid" class="portfolioimages">
-    <div class="row row-cards">
+   <div class="gallery">
       <slot></slot>
     </div>
-  </div>
 </template>
 <script>
 export default {

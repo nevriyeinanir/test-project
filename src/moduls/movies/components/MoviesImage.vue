@@ -1,17 +1,11 @@
 <template>
-  <div class="col-sm-6 col-lg-4">
-    <div class="card card-sm">
+
+ 
       <router-link :to="this.Selectpath(this.moviestype)">
-        <img
-          :src="this.SelectSrc(this.moviestype)"
-          alt="Cinque Terre"
-          width="250"
+         <img  :src="this.SelectSrc(this.moviestype)" width="250"
           height="300"
-          class="rounded"
-        />
+          class="rounded">
       </router-link>
-    </div>
-  </div>
   <slot></slot>
 </template>
 

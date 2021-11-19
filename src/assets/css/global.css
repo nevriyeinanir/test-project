@@ -3,3 +3,18 @@
     width: 100%;
     height: 30px;
   }
+  div.gallery {
+    margin: 10px;
+    float: left;
+    width: 300px;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 25px;
+    text-align: righ;
+  }

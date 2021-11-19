@@ -1,20 +1,11 @@
 <template>
-  <div class="col-sm-6 col-lg-4">
-    <div class="card card-sm">
-        <img
-          :src = this.moviesimg 
-          alt="Cinque Terre"
-          width="250"
-          height="300"
-          class="rounded"
-        />
-    </div>
-  </div>
+
+      <img :src="this.moviesimg" width="250" height="350" class="rounded" />
+   
   <slot></slot>
 </template>
 
 <script>
-
 export default {
   name: "MoviesImage",
   props: ["moviesimg"],
