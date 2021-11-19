@@ -1,7 +1,5 @@
 <template>
-
-      <img :src="this.moviesimg" width="250" height="350" class="rounded" />
-   
+  <img :src="this.moviesimg" width="200" height="300" class="rounded" />
   <slot></slot>
 </template>
 

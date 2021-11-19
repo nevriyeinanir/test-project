@@ -1,26 +1,16 @@
 <template>
    <div class="col-6 col-md-4">
-        <select
-          type="text"
-          class="form-select"
-          placeholder="Select a date"
-          id="select-people"
-          value=""
-        >
-          <option
-            value="1"
-            data-custom-properties='&lt;span class="avatar avatar-xs" style="background-image: url(./static/avatars/000m.jpg)"&gt;&lt;/span&gt;'
-          >
-            Paweł Kuna
-          </option>
-          <option
-            value="2"
-            data-custom-properties='&lt;span class="avatar avatar-xs"&gt;JL&lt;/span&gt;'
-          >
-            Jeffie Lewzey
-          </option>
-        </select>
-             </div>
+    <select class="form-select" aria-label="Default select example">
+  <option selected>Sırala</option>
+  <option value="1">Yeniye Göre Sırala</option>
+  <option value="2">Eskiye Göre Sırala</option>
+  <option value="3">Puana Göre Sırala</option>
+  <option value="3">Rastgele Sırala</option>
+</select>
+    </div>
+
+
+            
 </template>
 <script>
 export default {

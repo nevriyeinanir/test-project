@@ -1,7 +1,7 @@
 <template>
-   <div class="card-body">
+  <div class="card-body">
     <div class="d-flex align-items-center">
-    <h4>{{ Figcap(moviesContent)}}</h4>
+      <h4>{{ Figcap(moviesContent) }}</h4>
     </div>
   </div>
 </template>

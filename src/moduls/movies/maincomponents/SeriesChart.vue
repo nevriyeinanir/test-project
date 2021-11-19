@@ -1,16 +1,17 @@
 <template>
-<NavbarSelected>
-  <Find />
+<div class="container" style="text-align: center; padding: 20px">
+<div class="row justify-content-between">
+  <Find  @seriess ="series = $event"/>
   <DropDown />
-</NavbarSelected>
-  <Movies
+</div> 
+</div>
+  <Movies 
     v-for="(items, index) in series"
     :key="items.programType"
     :index="index"
-    ><SeriesImage :index="index" :moviesimg="items.images['Poster Art'].url" />
-    <SeriesFooter :index="index" :moviesContent="items.title "/>
+    ><SeriesImage v-if="index<18"  :index="index" :moviesimg="items.images['Poster Art'].url" />
+    <SeriesFooter v-if="index<18"  :index="index" :moviesContent="items.title "/>
   </Movies>
-
 </template>
 <script>
 import Movies from "../components/Movies.vue";
@@ -18,9 +19,9 @@ import SeriesFooter from "../components/SeriesFooter.vue";
 import SeriesImage from "../components/SeriesImage.vue";
 import Find from "../components/Find.vue";
 import DropDown from "../components/DropDown.vue";
-import NavbarSelected from "../components/NavbarSelected.vue";
+// import NavbarSelected from "../components/NavbarSelected.vue";
 import axios from "axios";
-NavbarSelected
+
 
 export default {
   name: "MoviesChart",
@@ -30,7 +31,7 @@ export default {
     SeriesImage: SeriesImage,
     Find: Find,
     DropDown: DropDown,
-    NavbarSelected: NavbarSelected,
+    
   },
   data() {
     return {
@@ -43,6 +44,7 @@ export default {
   },
   methods: {
     getSeries() {
+      console.log(this.series)
       axios
         .get("/db_movies.json")
         .then((response) => {

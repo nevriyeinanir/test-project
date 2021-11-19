@@ -1,11 +1,12 @@
 <template>
-
- 
-      <router-link :to="this.Selectpath(this.moviestype)">
-         <img  :src="this.SelectSrc(this.moviestype)" width="250"
-          height="300"
-          class="rounded">
-      </router-link>
+  <router-link :to="this.Selectpath(this.moviestype)">
+    <img
+      :src="this.SelectSrc(this.moviestype)"
+      width="250"
+      height="300"
+      class="rounded"
+    />
+  </router-link>
   <slot></slot>
 </template>
 
