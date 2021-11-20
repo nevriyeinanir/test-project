@@ -28,7 +28,7 @@ export default {
             this.series = response.data.entries.filter(function (item) {
               return item.title.toLowerCase().includes(searchStr);
             });
-            this.$emit("seriess", this.series);
+           this.$emit("seriess", this.series);
             console.log(this.series);
           })
           .catch((err) => {

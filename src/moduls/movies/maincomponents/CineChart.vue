@@ -7,7 +7,7 @@
 </div>
   <Movies
     v-for="(items, index) in series"
-    :key="items.programType"
+    :key="programTypes[index]"
     :index="index"
   ><SeriesImage v-if="index<18" :index="index" :moviesimg="items.images['Poster Art'].url"/>
     <SeriesFooter v-if="index<18" :index="index" :moviesContent="items.title"/>
