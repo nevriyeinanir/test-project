@@ -21,6 +21,7 @@ export default {
     };
   },
   methods: {
+    // Ansayfa'da bulunan Ana başlıklara yönlendirme ve görsel atanır
     SelectSrc(m) {
       if (m == "series") {
         this.src =

@@ -12,6 +12,7 @@ export default {
   props: ["moviesContent"],
   caption: "",
   methods: {
+    //Ana Ekranda Görsel altına Açıklama eklenir
     Figcap(f) {
       if (f == "series") {
         this.caption = "Dizi";

@@ -4,7 +4,6 @@
   <Footer />
 </template>
 <script>
-// @ is an alias to /src
 import Header from "./Layouts/Header.vue";
 import Footer from "./Layouts/Footer.vue";
 

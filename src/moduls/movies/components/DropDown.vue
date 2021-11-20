@@ -22,6 +22,7 @@ export default {
     };
   },
   methods: {
+    //Tüm veri üzerinden sıralama işlemi yapılır
     change(event) {
       this.selected = event.target.value;
       const Liststr = this.selected;

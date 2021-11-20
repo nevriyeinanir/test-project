@@ -29,6 +29,7 @@ export default {
   created() {
     this.getMovies();
   },
+  //programType'lara göre ana ekranda Başlıkları olşturur
   methods: {
     getMovies() {
       axios

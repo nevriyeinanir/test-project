@@ -18,6 +18,7 @@ export default {
     };
   },
   methods: {
+    //Tüm veri üzerinde 3 karakterden sonra adına göre arama işlemi yapılır
     searchItems() {
       console.log(this.search);
       const searchStr = this.search.toLowerCase();

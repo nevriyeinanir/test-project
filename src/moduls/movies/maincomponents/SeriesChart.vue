@@ -1,10 +1,8 @@
 <template>
-<div class="container" style="text-align: center; padding: 20px">
-<div class="row justify-content-between">
+<NavbarSelected>
   <Find  @seriess ="series = $event"/>
   <DropDown @seriess ="series = $event"/>
-</div> 
-</div>
+</NavbarSelected>
   <Movies 
     v-for="(items, index) in series"
     :key="programTypes[index]"
@@ -19,7 +17,7 @@ import SeriesFooter from "../components/SeriesFooter.vue";
 import SeriesImage from "../components/SeriesImage.vue";
 import Find from "../components/Find.vue";
 import DropDown from "../components/DropDown.vue";
-// import NavbarSelected from "../components/NavbarSelected.vue";
+ import NavbarSelected from "../components/NavbarSelected.vue";
 import axios from "axios";
 
 
@@ -31,6 +29,7 @@ export default {
     SeriesImage: SeriesImage,
     Find: Find,
     DropDown: DropDown,
+    NavbarSelected :NavbarSelected,
     
   },
   data() {
@@ -42,15 +41,21 @@ export default {
   created() {
     this.getSeries();  
   },
+  //Herhangi bir filtreleme işlemi yapılmadıysa ilk 18 diziyi getirir 
   methods: {
     getSeries() {
       console.log(this.series)
       axios
         .get("/db_movies.json")
         .then((response) => {
-          this.series = response.data.entries.filter(function (item) {
+          this.series = 
+            response
+            .data
+            .entries
+            .filter(function (item) {
             return item.programType == "series";
-          });
+          })
+          .slice(0,18);
           console.log(this.series.title);
         })
         .catch((err) => {
